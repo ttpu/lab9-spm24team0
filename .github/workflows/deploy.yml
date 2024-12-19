@@ -42,7 +42,7 @@ jobs:
         script: |
           sudo systemctl start docker || { echo "Docker service failed to start"; exit 1; }
           ls -l /home/azureuser/spm24_project0.tar || { echo "Tarball not found"; exit 1; }
-          docker load < /home/azureuser/spm24_project0.tar || { echo "Docker load failed"; exit 1; }
+          docker load --input /home/azureuser/spm24_project0.tar || { echo "Docker load failed"; exit 1; }
           docker images || { echo "No images found"; exit 1; }
           docker run --rm --name spm24_test_project0 -p 5001:5000 spm24_project0:latest &
           sleep 15
