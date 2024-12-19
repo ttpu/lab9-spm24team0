@@ -44,6 +44,8 @@ jobs:
           ls -l /home/azureuser/spm24_project0.tar/spm24_project0.tar || { echo "Tarball not found"; exit 1; }
           docker load < /home/azureuser/spm24_project0.tar/spm24_project0.tar || { echo "Docker load failed"; exit 1; }
           docker images || { echo "No images found"; exit 1; }
+          docker stop spm24_test_project0 || true
+          docker rm spm24_test_project0 || true
           docker run --rm --name spm24_test_project0 -p 5001:5000 spm24_project0:latest &
           sleep 20
           curl -f http://localhost:5001 || { docker stop spm24_test_project0; exit 1; }
@@ -57,6 +59,6 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.DEPLOY_KEY }}
         script: |
-          docker stop spm24_project0 || true
-          docker rm spm24_project0 || true
+          docker stop spm24_project0 || { echo "No running container to stop"; }
+          docker rm spm24_project0 || { echo "No container to remove"; }
           docker run -d --name spm24_project0 -p 5000:5000 spm24_project0:latest
