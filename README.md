@@ -1,4 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Z2qKazcY)
+
+## Team 6:  [LINK](https://github.com/ttpu/lab9-spm24team6)
+1) Madina Tursunova
+2) ....
+
+
 ## Team N:
 
 * _(ID, Name, Surname)_
